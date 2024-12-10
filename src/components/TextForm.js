@@ -3,17 +3,21 @@ import React, { useState } from "react";
 export default function TextForm(props) {
   const onUppercaseClicked = () => {
     setText(text.toUpperCase())
+    props.showAlert("converted to uppercase","success")
   };
   const onlowercaseClicked = () => {
-    setText(text.toLowerCase())
+    setText(text.toLowerCase());
+    props.showAlert("converted to lowercase","success")
   };
   const clearText = () => {
     setText('')
+    props.showAlert("text cleared","success")
 };
  const onCopyClick =() =>{
   let text = document.getElementById('myBox');
   text.select();
   navigator.clipboard.writeText(text.value);
+  props.showAlert("copied to clipboard","success")
 
  }
   const handleOnChange = (e) => {
